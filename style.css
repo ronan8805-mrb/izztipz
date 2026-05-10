@@ -723,10 +723,6 @@ nav {
         gap: 2rem;
     }
 
-    .hero-visual-wrapper {
-        order: -1; /* Image first on mobile */
-    }
-
     .hero-trust-bar {
         justify-content: center;
         flex-wrap: wrap;
