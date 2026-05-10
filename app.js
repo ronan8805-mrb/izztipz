@@ -124,17 +124,18 @@ function initMobileMenu() {
     const navLinks = document.querySelector('.nav-links');
     
     if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
+        hamburger.onclick = function() {
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
-        });
+            console.log('Menu Toggled:', navLinks.classList.contains('active'));
+        };
         
         // Close menu when link is clicked
         navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
+            link.onclick = function() {
                 navLinks.classList.remove('active');
                 hamburger.classList.remove('active');
-            });
+            };
         });
     }
 }

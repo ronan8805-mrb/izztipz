@@ -692,45 +692,49 @@ nav {
     transition: var(--transition);
 }
 
-/* Padlock Static State */
-.padlock-animated {
-    display: flex;
-    justify-content: center; /* Center on desktop too if needed, but definitely on mobile */
-    margin-bottom: 1.5rem;
-}
-
-.padlock-animated svg {
-    width: 60px;
-    height: 60px;
-}
-
-/* Stop Animation */
-.padlock-animated .lock-shackle {
-    transform: translateY(0) !important;
+/* Force Stop Lock Animation */
+.padlock-animated svg *, 
+.padlock-animated .lock-shackle,
+.padlock-animated .lock-body {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
 }
 
 @media (max-width: 992px) {
-    .hamburger { display: flex; }
+    .hamburger { 
+        display: flex !important; 
+        position: relative;
+        z-index: 2100 !important;
+    }
     
     .nav-links {
-        display: flex !important; /* Ensure it's not hidden */
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 100%; /* Full width for better interaction */
-        height: 100vh;
-        background: #0a0a0a; /* solid black for mobile menu */
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2.5rem;
-        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 2000; /* Extremely high z-index */
+        display: flex !important;
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: #000000 !important; /* Solid black */
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 3rem !important;
+        transition: right 0.4s ease-in-out !important;
+        z-index: 2000 !important;
+        visibility: visible !important;
     }
 
     .nav-links.active {
-        right: 0;
+        right: 0 !important;
     }
+
+    .nav-links a {
+        font-size: 1.5rem !important;
+        color: #fff !important;
+        display: block !important;
+    }
+}
 
     .section-title {
         text-align: center;
