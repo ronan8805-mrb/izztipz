@@ -781,21 +781,69 @@ nav {
     }
 }
 
+@media (max-width: 768px) {
+    /* Global Text Scaling */
+    h1 { font-size: 2.2rem !important; }
+    h2 { font-size: 1.8rem !important; }
+    .gold-gradient-text { font-size: inherit; }
+    
+    /* Dashboard Fixes */
+    .dashboard-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+
+    .dash-stats {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* 2x2 on mobile */
+        gap: 1rem !important;
+    }
+
+    .stats-card-modern .value {
+        font-size: 1.5rem !important;
+    }
+
+    .side-portal {
+        width: 100% !important;
+    }
+
+    .chatroom-container {
+        height: 400px !important;
+    }
+
+    /* Pricing & VIP Fixes */
+    .pricing-grid {
+        grid-template-columns: 1fr !important;
+        padding: 0 1rem !important;
+    }
+
+    .pricing-card {
+        margin-bottom: 2rem;
+    }
+
+    .vip-hero h1 {
+        font-size: 2.5rem !important;
+        word-break: break-word;
+    }
+
+    .vip-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Navbar Fix */
+    .nav-links a {
+        font-size: 1.2rem !important;
+    }
+}
+
 @media (max-width: 480px) {
+    .dash-stats {
+        grid-template-columns: 1fr !important; /* Stack stats on very small screens */
+    }
+
     .hero-trust-bar {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-    }
-    
-    .hero-actions {
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .btn-primary-gold, .btn-secondary {
-        width: 100%;
-        text-align: center;
+        grid-template-columns: repeat(2, 1fr) !important;
     }
 }
 
