@@ -741,10 +741,6 @@ nav {
         width: 100%;
     }
 
-    .modern-subheadline {
-        display: none !important;
-    }
-
     .section-title h2 {
         font-size: 2rem !important;
     }
@@ -778,6 +774,10 @@ nav {
     .footer-links a {
         font-size: 0.8rem;
         margin-bottom: 0.5rem;
+    }
+
+    .mobile-hide {
+        display: none !important;
     }
 }
 
