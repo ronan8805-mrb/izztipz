@@ -692,54 +692,84 @@ nav {
     transition: var(--transition);
 }
 
+/* Padlock Static State */
+.padlock-animated {
+    display: flex;
+    justify-content: center; /* Center on desktop too if needed, but definitely on mobile */
+    margin-bottom: 1.5rem;
+}
+
+.padlock-animated svg {
+    width: 60px;
+    height: 60px;
+}
+
+/* Stop Animation */
+.padlock-animated .lock-shackle {
+    transform: translateY(0) !important;
+}
+
 @media (max-width: 992px) {
     .hamburger { display: flex; }
     
     .nav-links {
+        display: flex !important; /* Ensure it's not hidden */
         position: fixed;
         top: 0;
         right: -100%;
-        width: 80%;
+        width: 100%; /* Full width for better interaction */
         height: 100vh;
-        background: rgba(10, 10, 10, 0.98);
-        backdrop-filter: blur(20px);
+        background: #0a0a0a; /* solid black for mobile menu */
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2rem;
-        transition: 0.4s ease;
-        z-index: 1000;
-        border-left: 1px solid var(--glass-border);
+        gap: 2.5rem;
+        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 2000; /* Extremely high z-index */
     }
 
     .nav-links.active {
         right: 0;
     }
 
-    .hero-grid {
-        grid-template-columns: 1fr !important;
+    .section-title {
         text-align: center;
-        padding-top: 2rem;
-        gap: 2rem;
+        width: 100%;
+    }
+
+    .section-title h2 {
+        font-size: 2rem !important;
+    }
+
+    .hero-text-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
     .hero-trust-bar {
+        display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 1rem;
+        gap: 1.5rem;
+        width: 100%;
+        margin-top: 3rem;
     }
 
-    .hero-trust-bar img {
-        height: 20px;
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
     }
 
-    .modern-headline {
-        font-size: 2.5rem !important;
-        line-height: 1.1;
+    .footer-links {
+        align-items: center;
     }
 
-    .modern-subheadline {
-        font-size: 1rem !important;
+    .footer-links a {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
     }
 }
 
