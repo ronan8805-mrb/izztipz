@@ -802,59 +802,73 @@ nav {
     }
 }
 
-@media (max-width: 768px) {
-    /* Global Text Scaling */
-    h1 { font-size: 2.2rem !important; }
-    h2 { font-size: 1.8rem !important; }
-    .gold-gradient-text { font-size: inherit; }
-    
-    /* Dashboard Fixes */
+@media (max-width: 992px) {
+    /* Global Overrides */
+    h1, .modern-headline { font-size: 2rem !important; line-height: 1.2 !important; }
+    h2 { font-size: 1.5rem !important; }
+    .gold-gradient-text { font-size: inherit !important; }
+
+    .container {
+        padding: 0 15px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Dashboard Reconstruction */
     .dashboard-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 2rem !important;
+        display: block !important;
     }
 
     .dash-stats {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important; /* 2x2 on mobile */
-        gap: 1rem !important;
+        display: block !important;
     }
 
-    .stats-card-modern .value {
-        font-size: 1.5rem !important;
+    .stats-card-modern {
+        width: 100% !important;
+        margin-bottom: 1rem !important;
+        padding: 1.5rem !important;
+    }
+
+    .live-feed-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1rem !important;
+        text-align: left !important;
+    }
+
+    .feed-filters {
+        width: 100% !important;
+        justify-content: flex-start !important;
+        overflow-x: auto !important;
+        padding-bottom: 10px !important;
     }
 
     .side-portal {
+        margin-top: 3rem !important;
         width: 100% !important;
     }
 
-    .chatroom-container {
-        height: 400px !important;
-    }
-
-    /* Pricing & VIP Fixes */
+    /* Pricing Fix */
     .pricing-grid {
-        grid-template-columns: 1fr !important;
-        padding: 0 1rem !important;
+        display: block !important;
     }
 
     .pricing-card {
-        margin-bottom: 2rem;
+        width: 100% !important;
+        margin-bottom: 2rem !important;
     }
 
+    /* VIP Page Fix */
     .vip-hero h1 {
-        font-size: 2.5rem !important;
-        word-break: break-word;
+        font-size: 2.2rem !important;
     }
 
     .vip-grid {
-        grid-template-columns: 1fr !important;
+        display: block !important;
     }
 
-    /* Navbar Fix */
-    .nav-links a {
-        font-size: 1.2rem !important;
+    .vip-card {
+        margin-bottom: 1.5rem !important;
     }
 }
 
