@@ -6,16 +6,6 @@
     <title>VIP Access — DizTipz Elite</title>
     <link rel="stylesheet" href="style.css?v=3.0">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
-    <style>
-        /* Failsafe Mobile CSS */
-        @media (max-width: 992px) {
-            html, body { overflow-x: hidden !important; width: 100vw !important; }
-            .nav-links { display: flex !important; position: fixed !important; right: -100% !important; z-index: 2500 !important; }
-            .nav-links.active { right: 0 !important; }
-            h1, .modern-headline { font-size: 2rem !important; }
-            .dashboard-grid, .pricing-grid, .vip-grid { display: block !important; }
-        }
-    </style>
 </head>
 <body class="dark-theme">
     <header class="glass-header">
@@ -72,18 +62,5 @@
     </main>
 
     <script src="app.js?v=3.0"></script>
-    <script>
-        // Emergency Mobile Nav Toggle
-        (function() {
-            const h = document.querySelector('.hamburger');
-            const n = document.querySelector('.nav-links');
-            if (h && n) {
-                h.addEventListener('click', function() {
-                    n.classList.toggle('active');
-                    h.classList.toggle('active');
-                });
-            }
-        })();
-    </script>
 </body>
 </html>
