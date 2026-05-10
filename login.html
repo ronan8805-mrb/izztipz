@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In — DizTipz Elite</title>
+    <link rel="stylesheet" href="style.css?v=2.1">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme auth-layout flex-center">
+    
+    <header class="glass-header">
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="My-assets/Screenshot_2026-05-10_183738-removebg-preview.png" alt="DizTipz Logo" id="main-logo">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="vip.html" class="vip-highlight">VIP Access</a>
+                <div class="auth-group">
+                    <a href="signup.html" class="btn-outline">Join Now</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="auth-card glass">
+        <div class="text-center mb-l">
+            <img src="My-assets/Screenshot_2026-05-10_183738-removebg-preview.png" alt="DizTipz" class="auth-logo" style="height: 60px; margin-bottom: 1rem;">
+            <h2>Welcome Back</h2>
+            <p>Enter your elite credentials</p>
+        </div>
+        <form id="login-form">
+            <div class="form-group">
+                <label>Username or Email Address</label>
+                <input type="text" id="login-id" required placeholder="dizadmin or name@example.com">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="btn-primary-gold w-full">SIGN IN</button>
+        </form>
+        <div class="auth-footer text-center mt-l">
+            <p>Don't have an account? <a href="signup.html" class="gold-text">Join Now</a></p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const id = document.getElementById('login-id').value;
+            if(id === 'dizadmin') {
+                localStorage.setItem('isAdmin', 'true');
+                localStorage.setItem('isLoggedIn', 'true');
+                window.location.href = 'admin-dash.html';
+            } else {
+                localStorage.setItem('isLoggedIn', 'true');
+                window.location.href = 'dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing — DizTipz Elite Memberships</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <header class="glass-header">
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="My-assets/Screenshot_2026-05-10_183738-removebg-preview.png" alt="DizTipz Logo" id="main-logo">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#features">Expertise</a>
+                <a href="pricing.html" class="active">Pricing</a>
+                <a href="vip.html" class="vip-highlight">VIP Access</a>
+                <div class="auth-group">
+                    <a href="login.html" class="btn-text">Sign In</a>
+                    <a href="signup.html" class="btn-outline">Join Now</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-xl">
+        <div class="section-title text-center">
+            <span class="eyebrow">CHOOSE YOUR EDGE</span>
+            <h1>MEMBERSHIP PLANS</h1>
+        </div>
+
+        <script>
+            function addToCart(tier, price) {
+                if (!localStorage.getItem('isLoggedIn')) {
+                    // Force signup first
+                    window.location.href = 'signup.html?intent=' + tier;
+                    return;
+                }
+                
+                const cart = JSON.parse(localStorage.getItem('diz_cart') || '[]');
+                cart.push({ tier, price });
+                localStorage.setItem('diz_cart', JSON.stringify(cart));
+                window.location.href = 'checkout.html';
+            }
+        </script>
+
+        <div class="pricing-grid">
+            <!-- Gold Tier -->
+            <div class="pricing-card">
+                <div class="plan-header">
+                    <h3>GOLD</h3>
+                    <div class="price">£7.99<span>/mo</span></div>
+                </div>
+                <ul class="features-list">
+                    <li>Daily Football Tips</li>
+                    <li>Basic Data Analysis</li>
+                    <li>Community Chat Access</li>
+                </ul>
+                <button class="btn-add-cart" onclick="addToCart('Gold', 7.99)">ADD TO CART</button>
+            </div>
+            <!-- Premium Tier -->
+            <div class="pricing-card">
+                <div class="plan-header">
+                    <h3>PREMIUM</h3>
+                    <div class="price">£19.99<span>/mo</span></div>
+                </div>
+                <ul class="features-list">
+                    <li>Daily Football & Racing Tips</li>
+                    <li>Expert Data Analysis</li>
+                    <li>Full Bankroll Management</li>
+                    <li>Weekly Profit Reports</li>
+                </ul>
+                <button class="btn-add-cart" data-id="premium" data-price="19.99">ADD TO CART</button>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="popular-badge">MOST ELITE</div>
+                <div class="plan-header">
+                    <h3>VIP ELITE</h3>
+                    <div class="price">£49.99<span>/mo</span></div>
+                </div>
+                <ul class="features-list">
+                    <li>Everything in Premium</li>
+                    <li>Direct VIP Chat Room Access</li>
+                    <li>Instant Betting Alerts (Telegram)</li>
+                    <li>Exclusive Max Bet Selections</li>
+                    <li>1-on-1 Strategy Consulting</li>
+                    <li>Monthly Cash Giveaways</li>
+                </ul>
+                <button class="btn-add-cart gold" data-id="vip" data-price="49.99">UPGRADE TO VIP</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

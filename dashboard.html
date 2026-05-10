@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Portal — DizTipz Elite</title>
+    <link rel="stylesheet" href="style.css?v=2.3">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    
+    <header class="glass-header">
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="My-assets/Screenshot_2026-05-10_183738-removebg-preview.png" alt="DizTipz Logo" id="main-logo" style="height: 40px;">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="pricing.html">Plans</a>
+                <div class="user-info">
+                    <span id="user-tier-badge" class="badge-vip">NONE</span>
+                    <a href="index.html" class="btn-text" onclick="localStorage.removeItem('isLoggedIn'); localStorage.removeItem('currentUser');">Log Out</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Locked Overlay -->
+    <div id="lock-overlay" class="hidden">
+        <h2 class="gold-gradient-text mb-l">ELITE ACCESS LOCKED</h2>
+        <p class="mb-l">You need an active membership to view live tips, analytics, and join the community chat.</p>
+        <div class="lock-icon mb-l" style="font-size: 4rem;">🔒</div>
+        <a href="pricing.html" class="btn-primary-gold w-full">VIEW MEMBERSHIP PLANS</a>
+    </div>
+
+    <main class="container py-xl" style="margin-top: 4rem;" id="dash-main-content">
+        <!-- High-Tech Stats Strip -->
+        <div class="dash-stats">
+            <div class="stats-card-modern">
+                <div class="label">Total Profit (Units)</div>
+                <div class="value" id="stat-profit">+42.5</div>
+            </div>
+            <div class="stats-card-modern">
+                <div class="label">Strike Rate</div>
+                <div class="value" id="stat-strike">78.4%</div>
+            </div>
+            <div class="stats-card-modern">
+                <div class="label">Avg Odds</div>
+                <div class="value" id="stat-odds">2.10</div>
+            </div>
+            <div class="stats-card-modern">
+                <div class="label">Tips Accepted</div>
+                <div class="value" id="stat-accepted">154</div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid" style="display: grid; grid-template-columns: 1fr 400px; gap: 2rem;">
+            <!-- Twitter Style Feed -->
+            <div class="feed-section">
+                <div class="section-header mb-l" style="display: flex; justify-content: space-between; align-items: center;">
+                    <h2>DIZ LIVE FEED</h2>
+                    <div class="filter-btns">
+                        <button class="btn-text active">ALL</button>
+                        <button class="btn-text">FOOTBALL</button>
+                        <button class="btn-text">RACING</button>
+                    </div>
+                </div>
+                
+                <div id="tips-feed" class="tip-feed">
+                    <!-- Tips will be injected here -->
+                </div>
+            </div>
+
+            <!-- Discord Style Chat & Personal Tracking -->
+            <div class="side-portal">
+                <div class="personal-tracker glass p-l mb-l">
+                    <h3>MY STATISTICS</h3>
+                    <div class="tracker-mini-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;">
+                        <div class="mini-stat">
+                            <small>My Units</small>
+                            <div class="gold-text" id="my-units">0.00</div>
+                        </div>
+                        <div class="mini-stat">
+                            <small>Active Bets</small>
+                            <div class="gold-text" id="my-active">0</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary-gold w-full mt-l" style="font-size: 0.7rem;">VIEW FULL HISTORY</button>
+                </div>
+
+                <div class="chatroom-container">
+                    <div class="p-l border-bottom" style="border-bottom: 1px solid var(--glass-border);">
+                        <h3 style="font-size: 0.9rem;"># ELITE-CHATROOM</h3>
+                    </div>
+                    <div class="chat-messages" id="chat-box">
+                        <!-- Messages Injected here -->
+                        <div class="message">
+                            <div class="message-avatar">JD</div>
+                            <div class="message-info">
+                                <span class="message-user">JohnDoe_99</span>
+                                <span class="message-time">14:23</span>
+                                <div class="message-text">Holy boommmm! Diz on fire today 🔥</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" class="chat-input" placeholder="Message #elite-chatroom">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        // Init Page
+        initUserData();
+        checkGating();
+        renderTips();
+        
+        document.getElementById('my-units').innerText = localStorage.getItem('my_units') || '0.00';
+        document.getElementById('stat-accepted').innerText = localStorage.getItem('my_accepted') || '154';
+    </script>
+</body>
+</html>
