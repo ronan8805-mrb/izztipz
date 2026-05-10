@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCart();
     initParticles();
     initAuthRedirects();
+    initMobileMenu();
 });
 
 /**
@@ -117,7 +118,28 @@ function checkGating() {
     }
 }
 
-    // Master Key Logic
+    // Mobile Menu Toggle
+function initMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+        
+        // Close menu when link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    }
+}
+
+// Master Key Logic
     function checkAdminStatus() {
         return localStorage.getItem('isAdmin') === 'true';
     }
